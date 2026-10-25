@@ -1,0 +1,303 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #09090b;
+    color: #f4f4f5;
+  }
+}
+
+/* Video Game Typography Utilities */
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-game-title {
+  font-family: 'Cinzel', 'Russo One', serif;
+}
+
+.font-game-oxanium {
+  font-family: 'Oxanium', 'Rajdhani', sans-serif;
+}
+
+.font-game-num {
+  font-family: 'Rajdhani', 'Oxanium', monospace, sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.font-game-ui {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Tactile 3D Video Game Buttons (Drop-bevel & sink-on-click) */
+.game-btn {
+  position: relative;
+  transition: transform 0.08s ease, filter 0.15s ease, background-color 0.15s ease;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.game-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Solid Luxury Casino Felt Colors — Flat & Matte (No Gradients) */
+.theme-felt-green {
+  background-color: #0b2316;
+}
+
+.theme-midnight-blue {
+  background-color: #0a1122;
+}
+
+.theme-dark-wood {
+  background-color: #12100e;
+}
+
+.theme-royal-purple {
+  background-color: #150b24;
+}
+
+.theme-casino-red {
+  background-color: #1e0910;
+}
+
+/* Animated Atmosphere Dynamic Themes */
+.theme-gradient-ascii {
+  background-color: #030612;
+}
+
+.theme-silk {
+  background-color: #070316;
+}
+
+.theme-flux-lines {
+  background-color: #04060b;
+}
+
+/* Custom Scrollbar for stats / modal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Visual Novel Character Float & Breathing Keyframe */
+@keyframes vn-character-breathe {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.006);
+  }
+}
+
+.vn-breathe {
+  animation: vn-character-breathe 4s ease-in-out infinite;
+}
+
+/* Subtle Golden Shimmer for Visual Novel Dialogue Box */
+@keyframes vn-dialog-pulse {
+  0%, 100% {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 25px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 40px rgba(212, 175, 55, 0.35);
+  }
+}
+
+.vn-dialog-frame {
+  animation: vn-dialog-pulse 3s ease-in-out infinite;
+}
+
+/* Satisfying Card Movement, Landing & Cascade Settle */
+@keyframes card-land {
+  0% {
+    transform: translateY(-28px) scale(1.06);
+    filter: brightness(1.18);
+    box-shadow: 0 20px 32px rgba(0, 0, 0, 0.65);
+  }
+  60% {
+    transform: translateY(2px) scale(0.99);
+    filter: brightness(1.02);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    filter: brightness(1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.animate-card-land {
+  animation: card-land 0.28s cubic-bezier(0.18, 0.89, 0.32, 1.25) forwards;
+  will-change: transform, filter, box-shadow;
+}
+
+@keyframes slot-land-flash {
+  0% {
+    box-shadow: 0 0 24px rgba(251, 191, 36, 0.85);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+.animate-slot-flash {
+  animation: slot-land-flash 0.45s ease-out forwards;
+}
+
+/* Authentic Solitaire Deal Animation (Launching from Stock Deck into Tableau) */
+@keyframes card-deal-fly {
+  0% {
+    opacity: 0;
+    transform: translate(var(--deal-dx, -100px), var(--deal-dy, -150px)) scale(0.86) rotate(-7deg);
+    filter: brightness(1.22) drop-shadow(0 16px 26px rgba(0, 0, 0, 0.75));
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    transform: translate(2px, -3px) scale(1.04) rotate(1deg);
+    filter: brightness(1.05);
+  }
+  88% {
+    transform: translate(-1px, 1px) scale(0.99) rotate(-0.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    filter: brightness(1);
+  }
+}
+
+.animate-card-deal-fly {
+  animation: card-deal-fly 300ms cubic-bezier(0.18, 0.88, 0.32, 1.05) both;
+  will-change: transform, opacity, filter;
+}
+
+/* -------------------------------------------------------------------------
+   Interactive Click Sparks & Golden Juice Animations
+   ------------------------------------------------------------------------- */
+@keyframes click-ring {
+  0% {
+    transform: scale(0.35);
+    opacity: 1;
+    border-color: #fde68a;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+    border-color: #d97706;
+  }
+}
+
+.animate-click-ring {
+  animation: click-ring 0.38s ease-out forwards;
+}
+
+@keyframes spark-1 {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+  100% { transform: translate(22px, 0px) scale(1.1); opacity: 0; }
+}
+.animate-spark-1 { animation: spark-1 0.36s cubic-bezier(0.15, 0.9, 0.3, 1) forwards; }
+
+@keyframes spark-2 {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+  100% { transform: translate(7px, 21px) scale(1.1); opacity: 0; }
+}
+.animate-spark-2 { animation: spark-2 0.36s cubic-bezier(0.15, 0.9, 0.3, 1) forwards; }
+
+@keyframes spark-3 {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+  100% { transform: translate(-18px, 13px) scale(1.1); opacity: 0; }
+}
+.animate-spark-3 { animation: spark-3 0.36s cubic-bezier(0.15, 0.9, 0.3, 1) forwards; }
+
+@keyframes spark-4 {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+  100% { transform: translate(-18px, -13px) scale(1.1); opacity: 0; }
+}
+.animate-spark-4 { animation: spark-4 0.36s cubic-bezier(0.15, 0.9, 0.3, 1) forwards; }
+
+@keyframes spark-5 {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+  100% { transform: translate(7px, -21px) scale(1.1); opacity: 0; }
+}
+.animate-spark-5 { animation: spark-5 0.36s cubic-bezier(0.15, 0.9, 0.3, 1) forwards; }
+
+/* Balatro-Style Juicy Floating Score Punch */
+@keyframes score-punch {
+  0% {
+    transform: translate(-50%, -50%) scale(1.7) rotate(-5deg);
+    opacity: 0;
+  }
+  16% {
+    transform: translate(-50%, -50%) scale(1.05) rotate(1.5deg);
+    opacity: 1;
+  }
+  65% {
+    transform: translate(-50%, -100%) scale(0.98) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -170%) scale(0.82) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+.animate-score-punch {
+  animation: score-punch 0.65s cubic-bezier(0.18, 0.89, 0.32, 1.1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Call of Duty / FPS In-Game Floating Score Feed */
+@keyframes cod-score-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  78% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.animate-cod-score {
+  animation: cod-score-rise 2.2s cubic-bezier(0.16, 0.9, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
